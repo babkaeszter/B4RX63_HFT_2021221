@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\B4RX63_HFT_2021221.Data\B4RX63_HFT_2021221.Data.csproj" />
     <ProjectReference Include="..\B4RX63_HFT_2021221.Models\B4RX63_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\B4RX63_HFT_2021221.Repository\B4RX63_HFT_2021221.Repository.csproj" />
   </ItemGroup>
 
 </Project>
