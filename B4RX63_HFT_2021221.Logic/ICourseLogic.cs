@@ -1,14 +1,14 @@
 ﻿using B4RX63_HFT_2021221.Models;
-using System.Linq;
+using System.Collections.Generic;
 
-namespace B4RX63_HFT_2021221.Repository
+namespace B4RX63_HFT_2021221.Logic
 {
-    public interface ICourseRepository
+    public interface ICourseLogic
     {
         void Create(Course course);
         void Delete(int id);
         Course Read(int id);
-        IQueryable<Course> ReadAll();
+        IEnumerable<Course> ReadAll();
         void Update(Course course);
     }
 }

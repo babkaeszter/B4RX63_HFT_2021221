@@ -8,7 +8,7 @@ using B4RX63_HFT_2021221.Models;
 
 namespace B4RX63_HFT_2021221.Repository
 {
-    class OwnerRepository : IOwnerRepository
+    public class OwnerRepository : IOwnerRepository
     {
 
 

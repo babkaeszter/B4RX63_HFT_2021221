@@ -5,7 +5,7 @@ using B4RX63_HFT_2021221.Models;
 
 namespace B4RX63_HFT_2021221.Client
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
