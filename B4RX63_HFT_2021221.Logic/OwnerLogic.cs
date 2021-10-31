@@ -41,6 +41,22 @@ namespace B4RX63_HFT_2021221.Logic
         }
         //Non-cruds
         //legidősebb gazdi
-        //legnagyobb kutya gazdija
+        public Owner OldestOwner()
+        {
+            var oldest = ownerRepo.ReadAll().OrderByDescending(o => o.Age).Select(o => o.Id).FirstOrDefault();
+            return ownerRepo.Read(oldest);
+        }
+        //legfiatalabb női gazdi kutyái
+        public IEnumerable<string> YoungestFemalesDogs()
+        {
+            var list = ownerRepo.ReadAll().Where(o => o.Sex == Gender.female).OrderByDescending(o => o.Age).Select(l => l.Dogs);
+            return list.FirstOrDefault().Select(d => d.Name).ToList<string>();
+        }
+        // 30 évnél fiatalabb gazdik kurzusainak neve
+        public ICollection<string> YoungOwnersCourses()
+        {
+            var courses = ownerRepo.ReadAll().Where(o => o.Age < 25).Select(c => c.Course.Name).ToList<string>();
+            return courses;
+        }
     }
-}
+    }

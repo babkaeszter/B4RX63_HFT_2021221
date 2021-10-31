@@ -41,7 +41,20 @@ namespace B4RX63_HFT_2021221.Logic
         }
         //Non-cruds
         //csoportok létszáma
-        //legnagyobb kutya csoportja
+        public ICollection<KeyValuePair<string, int>> CourseGroupNumber()
+        {
+            var list = from c in courseRepo.ReadAll()
+                       select new KeyValuePair<string, int>(c.Name, c.ParticipantOwners.Count());
+            return list.ToList();
+
+        }
         //csoportok átlagos testsúly
+        public ICollection<KeyValuePair<string, double>> CourseAverageWeight()
+        {
+            var list = from c in courseRepo.ReadAll()
+                       select new KeyValuePair<string, double>(c.Name, c.ParticipantDogs.Average(d => d.Weight));
+            return list.ToList();
+
+        }
     }
 }
