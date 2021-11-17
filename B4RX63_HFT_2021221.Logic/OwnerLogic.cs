@@ -43,8 +43,8 @@ namespace B4RX63_HFT_2021221.Logic
         //legidősebb gazdi
         public Owner OldestOwner()
         {
-            var oldest = ownerRepo.ReadAll().OrderByDescending(o => o.Age).Select(o => o.Id).FirstOrDefault();
-            return ownerRepo.Read(oldest);
+            var oldest = ownerRepo.ReadAll().OrderByDescending(o => o.Age).Select(o => o).FirstOrDefault();
+            return oldest;
         }
         //legfiatalabb női gazdi kutyái
         public IEnumerable<string> YoungestFemalesDogs()

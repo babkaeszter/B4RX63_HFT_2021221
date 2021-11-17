@@ -20,7 +20,14 @@ namespace B4RX63_HFT_2021221.Logic
         public void Create(Dog dog)
         {
 
-            dogRepo.Create(dog);
+            if (dog.Height > 0 && dog.Weight > 0)
+            {
+                dogRepo.Create(dog);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid data");
+            }
         }
         public Dog Read(int id)
         {
@@ -42,14 +49,14 @@ namespace B4RX63_HFT_2021221.Logic
         //legnagyobb kutya
         public Dog LargestDog()
         {
-            var largest = dogRepo.ReadAll().OrderByDescending(d => d.Weight).Select(d => d.Id).Take(1);
-            return dogRepo.Read(largest.FirstOrDefault());
+            var largest = dogRepo.ReadAll().OrderByDescending(d => d.Weight).Select(d => d);
+            return largest.FirstOrDefault();
         }
         //legkisebb szuka kutya fajtája
         public string SmallestFemale()
         {
-            var sfd = dogRepo.ReadAll().Where(d => d.Sex == Gender.female).OrderBy(d => d.Height).Select(d => d.Id).Take(1);
-            return dogRepo.Read(sfd.First()).Breed;
+            var sfd = dogRepo.ReadAll().Where(d => d.Sex == Gender.female).OrderBy(d => d.Height).Select(d => d.Breed);
+            return sfd.First();
         }
         //leggyakoribb kutyafajta
         public string MostCommonBreed()
