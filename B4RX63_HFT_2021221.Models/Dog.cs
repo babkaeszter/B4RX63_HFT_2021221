@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace B4RX63_HFT_2021221.Models
@@ -33,8 +34,10 @@ namespace B4RX63_HFT_2021221.Models
         [ForeignKey(nameof(Owner))]
         public int OwnerId { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Owner Owner { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Course Course { get; set; }
     }
 }

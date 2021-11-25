@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using B4RX63_HFT_2021221.Data;
 using B4RX63_HFT_2021221.Models;
 
 namespace B4RX63_HFT_2021221.Client
@@ -9,7 +8,8 @@ namespace B4RX63_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
-            DogSchoolDBContext db = new DogSchoolDBContext();
+            System.Threading.Thread.Sleep(8000);
+            RestService rest = new RestService("http://localhost:25294");
         }
     }
 }

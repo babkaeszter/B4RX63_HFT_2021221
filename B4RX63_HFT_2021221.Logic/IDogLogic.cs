@@ -10,5 +10,9 @@ namespace B4RX63_HFT_2021221.Logic
         Dog Read(int id);
         IEnumerable<Dog> ReadAll();
         void Update(Dog dog);
+        Dog LargestDog();
+        string SmallestFemale();
+        string MostCommonBreed();
+        ICollection<Owner> CastratedDogssOwners();
     }
 }

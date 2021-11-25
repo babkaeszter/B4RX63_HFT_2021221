@@ -10,5 +10,8 @@ namespace B4RX63_HFT_2021221.Logic
         Owner Read(int id);
         IEnumerable<Owner> ReadAll();
         void Update(Owner owner);
+        Owner OldestOwner();
+        IEnumerable<string> YoungestFemalesDogs();
+        ICollection<string> YoungOwnersCourses();
     }
 }
