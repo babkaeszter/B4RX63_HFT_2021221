@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace B4RX63_HFT_2021221.Models
 {
+    //A kutyakiskolai tanfolyamok
     public class Course
     {
         [Key]
