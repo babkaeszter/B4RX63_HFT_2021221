@@ -15,7 +15,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
     public class OwnerController : ControllerBase
     {
 
-        IOwnerLogic ol;
+        IOwnerLogic ol; 
 
         public OwnerController(IOwnerLogic ol)
         {
@@ -29,7 +29,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
             return ol.ReadAll();
         }
 
-        // GET /owner/5
+        // GET /owner/
         [HttpGet("{id}")]
         public Owner Get(int id)
         {
