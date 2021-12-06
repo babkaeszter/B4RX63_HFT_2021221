@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace B4RX63_HFT_2021221.Logic
 {
+    //OwnerLogic interfésze
     public interface IOwnerLogic
     {
         void Create(Owner owner);
