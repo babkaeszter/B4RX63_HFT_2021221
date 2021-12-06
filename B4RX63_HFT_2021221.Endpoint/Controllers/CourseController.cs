@@ -29,7 +29,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
             return cl.ReadAll();
         }
 
-        // GET /course/x
+        // GET /course/
         [HttpGet("{id}")]
         public Course Get(int id)
         {
