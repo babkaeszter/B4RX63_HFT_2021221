@@ -8,6 +8,7 @@ using B4RX63_HFT_2021221.Models;
 
 namespace B4RX63_HFT_2021221.Logic
 {
+    //A dogrepository-t elérő osztály
     public class DogLogic : IDogLogic
     {
         IDogRepository dogRepo;
