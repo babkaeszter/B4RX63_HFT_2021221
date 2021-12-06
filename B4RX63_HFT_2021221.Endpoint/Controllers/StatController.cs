@@ -14,7 +14,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
     [ApiController]
     public class StatController : ControllerBase
     {
-        IDogLogic dl;
+        IDogLogic dl; //DogLogic interface
         IOwnerLogic ol;
         ICourseLogic cl;
 
