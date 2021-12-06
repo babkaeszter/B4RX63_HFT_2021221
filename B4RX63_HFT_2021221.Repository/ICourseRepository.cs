@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace B4RX63_HFT_2021221.Repository
 {
+    //Adatbázissal dolgozó osztály interfésze
     public interface ICourseRepository
     {
         void Create(Course course);
