@@ -29,7 +29,7 @@ namespace B4RX63_HFT_2021221.Controllers
             return dl.ReadAll();
         }
 
-        // GET /dog/
+        // GET /dog
         [HttpGet("{id}")]
         public Dog Get(int id)
         {
