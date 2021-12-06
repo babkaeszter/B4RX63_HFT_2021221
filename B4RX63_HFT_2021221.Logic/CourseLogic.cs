@@ -9,6 +9,7 @@ using B4RX63_HFT_2021221.Models;
 
 namespace B4RX63_HFT_2021221.Logic
 {
+    //A CourseRepository-t elérő osztály
     public class CourseLogic : ICourseLogic
     {
         ICourseRepository courseRepo;
