@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace B4RX63_HFT_2021221.Logic
 {
+    //CourseLogic interfésze
     public interface ICourseLogic
     {
         void Create(Course course);
