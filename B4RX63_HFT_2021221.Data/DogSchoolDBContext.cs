@@ -52,11 +52,12 @@ namespace B4RX63_HFT_2021221.Data
                 .OnDelete(DeleteBehavior.Restrict);
             }
             );
+            //Courses
             Models.Course alap = new Models.Course { Id = 1, Name = "Alapozó tanfolyam", Organizer = "Fővárosi Kutyások Egyesülete", Trainer = "Szűcs Zoltán" };
             Models.Course halado = new Models.Course { Id = 2, Name = "Haladó tanfolyam", Organizer = "Kutyás Élet Kutyaiskola", Trainer = "Lengyel Pálné" };
             Models.Course agility = new Models.Course { Id = 3, Name = "Agility tanfolyam", Organizer = "Sportkutyások Egyesülete", Trainer = "Kiss Bettina" };
             Models.Course ovt = new Models.Course { Id = 4, Name = "őrző-védő tanfolyam", Organizer = "Heroic Dogs Sportegyesület", Trainer = "Soós Miklós" };
-
+            //Owners
             Models.Owner tamas = new Models.Owner() { Id = 1, Name = "Kiss Tamás", Sex = Models.Gender.male, Age = 34, CourseId = alap.Id };
             Models.Owner eniko = new Models.Owner() { Id = 2, Name = "Szabó Enikő", Sex = Models.Gender.female, Age = 22, CourseId = alap.Id };
             Models.Owner istvan = new Models.Owner() { Id = 3, Name = "Varga István", Sex = Models.Gender.male, Age = 29, CourseId = alap.Id };
@@ -71,7 +72,7 @@ namespace B4RX63_HFT_2021221.Data
             Models.Owner agnes = new Models.Owner() { Id = 12, Name = "Kókai Ágnes", Sex = Models.Gender.female, Age = 27, CourseId = ovt.Id };
             Models.Owner adam = new Models.Owner() { Id = 13, Name = "Komor Adam", Sex = Models.Gender.male, Age = 35, CourseId = ovt.Id };
             Models.Owner akos = new Models.Owner() { Id = 14, Name = "Horváth Ákos", Sex = Models.Gender.male, Age = 24, CourseId = ovt.Id };
-
+            //Dogs
             Models.Dog buksi = new Models.Dog() { Id = 1, Name = "Buksi", Breed = "Puli", Sex = Models.Gender.male, Castrated = true, Weight = 13.4, Height = 42, OwnerId = tamas.Id, CourseId = alap.Id };
             Models.Dog poppy = new Models.Dog() { Id = 2, Name = "Poppy", Breed = "Dalmata", Sex = Models.Gender.female, Castrated = false, Weight = 20.3, Height = 56, OwnerId = eniko.Id, CourseId = alap.Id };
             Models.Dog athos = new Models.Dog() { Id = 3, Name = "Athos", Breed = "Német juhászkutya", Sex = Models.Gender.male, Castrated = false, Weight = 39, Height = 62.5, OwnerId = istvan.Id, CourseId = alap.Id };
