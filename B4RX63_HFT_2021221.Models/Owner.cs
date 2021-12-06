@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace B4RX63_HFT_2021221.Models
 {
+    //A kutyaák gazdái
     public class Owner
     {
         [Key]
