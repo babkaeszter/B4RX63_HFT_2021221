@@ -33,6 +33,13 @@ namespace B4RX63_HFT_2021221.Client
                 breed = Console.ReadLine();
             } while (breed.Length < 1);
 
+            int age;
+            do
+            {
+                Console.WriteLine("Owner's age:");
+                age = int.Parse(Console.ReadLine());
+            } while (age < 1); 
+
             string sex = "";
             Gender dog;
             do
@@ -81,17 +88,18 @@ namespace B4RX63_HFT_2021221.Client
             {
                 Console.WriteLine("Owner's ID:");
                 oID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Owner>(oID, "http://localhost:20109/owner").Equals(null)));
+            } while ((rest.Get<Owner>(oID, "http://localhost:25294/owner").Equals(null)));
 
             int cID;
             do
             {
                 Console.WriteLine("Course's ID:");
                 cID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Course>(cID, "http://localhost:20109/course").Equals(null))); ;
+            } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
 
             newDog.Name = name;
             newDog.Breed = breed;
+            newDog.Age = age;
             newDog.Sex = dog;
             newDog.Castrated = castrated;
             newDog.Weight = weight;
@@ -101,7 +109,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Dog>(newDog, "http://localhost:20109/dog");
+                rest.Post<Dog>(newDog, "http://localhost:25294/dog");
             }
             catch (ArgumentException)
             {
@@ -150,7 +158,7 @@ namespace B4RX63_HFT_2021221.Client
             {
                 Console.WriteLine("Course's ID:");
                 cID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Course>(cID, "http://localhost:20109/course").Equals(null))); ;
+            } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
 
             newOwner.Name = name;
             newOwner.Sex = gender;
@@ -159,7 +167,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Owner>(newOwner, "http://localhost:20109/owner");
+                rest.Post<Owner>(newOwner, "http://localhost:25294/owner");
             }
             catch (ArgumentException)
             {
@@ -204,7 +212,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Course>(newCourse, "http://localhost:20109/course");
+                rest.Post<Course>(newCourse, "http://localhost:25294/course");
             }
             catch (ArgumentException)
             {
