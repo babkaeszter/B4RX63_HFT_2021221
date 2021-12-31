@@ -10,6 +10,10 @@ namespace B4RX63_HFT_2021221.Client
         {
             System.Threading.Thread.Sleep(8000);
             RestService rest = new RestService("http://localhost:25294");
+
+
+            Menu menu = new Menu(rest, cm);
+            menu.OpenMenu();
         }
     }
 }
