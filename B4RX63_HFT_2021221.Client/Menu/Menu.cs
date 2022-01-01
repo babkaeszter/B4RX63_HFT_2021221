@@ -52,9 +52,9 @@ namespace B4RX63_HFT_2021221.Client
 
             //update submenu
             var usubMenu = new ConsoleMenu()
-            .Add("Update a Dog", () => SomeAction("Sub_One"))
-            .Add("Update an Owner", () => SomeAction("Sub_Two"))
-            .Add("Update a Course", () => SomeAction("Sub_Three"))
+            .Add("Update a Dog", () => um.UpdateDog())
+            .Add("Update an Owner", () => um.UpdateOwner())
+            .Add("Update a Course", () => um.UpdateCourse())
             .Add("Back", ConsoleMenu.Close)
             .Configure(config =>
             {
