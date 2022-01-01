@@ -36,7 +36,7 @@ namespace B4RX63_HFT_2021221.Client
             int age;
             do
             {
-                Console.WriteLine("Owner's age:");
+                Console.WriteLine("Dogs's age:");
                 age = int.Parse(Console.ReadLine());
             } while (age < 1); 
 

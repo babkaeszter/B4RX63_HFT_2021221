@@ -12,11 +12,13 @@ namespace B4RX63_HFT_2021221.Client
         public ConsoleMenu menu;
         public RestService rest;
         public CreateMethods cm;
+        public UpdateMethods um;
 
-        public Menu(RestService rest, CreateMethods cm)
+        public Menu(RestService rest, CreateMethods cm, UpdateMethods um)
         {
             this.menu = new ConsoleMenu();
             this.cm = cm;
+            this.um = um;
 
             //create submenu
             var csubMenu = new ConsoleMenu()
