@@ -12,8 +12,9 @@ namespace B4RX63_HFT_2021221.Client
             RestService rest = new RestService("http://localhost:25294");
 
             CreateMethods cm = new CreateMethods(rest);
+            ReadMethods rm = new ReadMethods(rest);
             UpdateMethods um = new UpdateMethods(rest);
-            Menu menu = new Menu(rest, cm,um);
+            Menu menu = new Menu(rest, cm,rm,um);
             menu.OpenMenu();
         }
     }

@@ -88,14 +88,14 @@ namespace B4RX63_HFT_2021221.Client
             {
                 Console.WriteLine("Owner's ID:");
                 oID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Owner>(oID, "http://localhost:25294/owner").Equals(null)));
+            } while ((rest.Get<Owner>(oID, "owner").Equals(null)));
 
             int cID;
             do
             {
                 Console.WriteLine("Course's ID:");
                 cID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
+            } while ((rest.Get<Course>(cID, "course").Equals(null))); ;
 
             newDog.Name = name;
             newDog.Breed = breed;
@@ -109,7 +109,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Dog>(newDog, "http://localhost:25294/dog");
+                rest.Post<Dog>(newDog, "dog");
             }
             catch (ArgumentException)
             {
@@ -158,7 +158,7 @@ namespace B4RX63_HFT_2021221.Client
             {
                 Console.WriteLine("Course's ID:");
                 cID = int.Parse(Console.ReadLine());
-            } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
+            } while ((rest.Get<Course>(cID, "course").Equals(null))); ;
 
             newOwner.Name = name;
             newOwner.Sex = gender;
@@ -167,7 +167,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Owner>(newOwner, "http://localhost:25294/owner");
+                rest.Post<Owner>(newOwner, "owner");
             }
             catch (ArgumentException)
             {
@@ -212,7 +212,7 @@ namespace B4RX63_HFT_2021221.Client
 
             try
             {
-                rest.Post<Course>(newCourse, "http://localhost:25294/course");
+                rest.Post<Course>(newCourse, "course");
             }
             catch (ArgumentException)
             {

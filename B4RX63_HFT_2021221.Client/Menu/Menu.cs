@@ -12,12 +12,14 @@ namespace B4RX63_HFT_2021221.Client
         public ConsoleMenu menu;
         public RestService rest;
         public CreateMethods cm;
+        public ReadMethods rm;
         public UpdateMethods um;
 
-        public Menu(RestService rest, CreateMethods cm, UpdateMethods um)
+        public Menu(RestService rest, CreateMethods cm, ReadMethods rm, UpdateMethods um)
         {
             this.menu = new ConsoleMenu();
             this.cm = cm;
+            this.rm = rm;
             this.um = um;
 
             //create submenu
@@ -37,9 +39,9 @@ namespace B4RX63_HFT_2021221.Client
 
             //read submenu
             var rsubMenu = new ConsoleMenu()
-           .Add("Read a Dog", () => SomeAction("Sub_One"))
-           .Add("Read an Owner", () => SomeAction("Sub_Two"))
-           .Add("Read a Course", () => SomeAction("Sub_Three"))
+           .Add("Read a Dog", () => rm.ReadDog())
+           .Add("Read an Owner", () => rm.ReadOwner())
+           .Add("Read a Course", () => rm.ReadCourse())
            .Add("Back", ConsoleMenu.Close)
            .Configure(config =>
            {

@@ -20,7 +20,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the dog's ID:");
             int id = int.Parse(Console.ReadLine());
 
-            if ((rest.Get<Dog>(id, "http://localhost:25294/dog").Equals(null)))
+            if ((rest.Get<Dog>(id, "dog").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
             }
@@ -99,14 +99,14 @@ namespace B4RX63_HFT_2021221.Client
                 {
                     Console.WriteLine("New Owner's ID:");
                     oID = int.Parse(Console.ReadLine());
-                } while ((rest.Get<Owner>(oID, "http://localhost:25294/owner").Equals(null)));
+                } while ((rest.Get<Owner>(oID, "owner").Equals(null)));
 
                 int cID;
                 do
                 {
                     Console.WriteLine("New Course's ID:");
                     cID = int.Parse(Console.ReadLine());
-                } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
+                } while ((rest.Get<Course>(cID, "course").Equals(null))); ;
                 updatedDog.Id = id;
                 updatedDog.Name = name;
                 updatedDog.Breed = breed;
@@ -120,7 +120,7 @@ namespace B4RX63_HFT_2021221.Client
 
                 try
                 {
-                    rest.Put<Dog>(updatedDog, "http://localhost:25294/dog");
+                    rest.Put<Dog>(updatedDog, "dog");
                 }
                 catch (ArgumentException)
                 {
@@ -134,7 +134,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the owner's ID:");
             int id = int.Parse(Console.ReadLine());
 
-            if ((rest.Get<Dog>(id, "http://localhost:25294/owner").Equals(null)))
+            if ((rest.Get<Dog>(id, "owner").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
             }
@@ -179,7 +179,7 @@ namespace B4RX63_HFT_2021221.Client
                 {
                     Console.WriteLine("Course's new ID:");
                     cID = int.Parse(Console.ReadLine());
-                } while ((rest.Get<Course>(cID, "http://localhost:25294/course").Equals(null))); ;
+                } while ((rest.Get<Course>(cID, "course").Equals(null))); ;
                 updatedOwner.Id = id;
                 updatedOwner.Name = name;
                 updatedOwner.Sex = gender;
@@ -188,7 +188,7 @@ namespace B4RX63_HFT_2021221.Client
 
                 try
                 {
-                    rest.Put<Owner>(updatedOwner, "http://localhost:25294/owner");
+                    rest.Put<Owner>(updatedOwner, "owner");
                 }
                 catch (ArgumentException)
                 {
@@ -203,7 +203,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the course's ID:");
             int id = int.Parse(Console.ReadLine());
 
-            if ((rest.Get<Dog>(id, "http://localhost:25294/course").Equals(null)))
+            if ((rest.Get<Dog>(id, "course").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
             }
@@ -243,7 +243,7 @@ namespace B4RX63_HFT_2021221.Client
 
                 try
                 {
-                    rest.Put<Course>(updatedCourse, "http://localhost:25294/course");
+                    rest.Put<Course>(updatedCourse, "course");
                 }
                 catch (ArgumentException)
                 {
