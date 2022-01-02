@@ -15,14 +15,16 @@ namespace B4RX63_HFT_2021221.Client
         public ReadMethods rm;
         public UpdateMethods um;
         public DeleteMethods dm;
+        public OtherActions om;
 
-        public Menu(RestService rest, CreateMethods cm, ReadMethods rm, UpdateMethods um, DeleteMethods dm)
+        public Menu(RestService rest, CreateMethods cm, ReadMethods rm, UpdateMethods um, DeleteMethods dm, OtherActions om)
         {
             this.menu = new ConsoleMenu();
             this.cm = cm;
             this.rm = rm;
             this.um = um;
             this.dm = dm;
+            this.om = om;
 
             //create submenu
             var csubMenu = new ConsoleMenu()
@@ -86,16 +88,15 @@ namespace B4RX63_HFT_2021221.Client
             //other methods's submenus
 
             var osubMenu = new ConsoleMenu()
-            .Add("Largest Dog", () => SomeAction("Sub_One"))
-            .Add("Smallest Female Dog's Breed", () => SomeAction("Sub_Two"))
-            .Add("Most Common Breed", () => SomeAction("Sub_Three"))
-            .Add("Castrated Dog's Owners", () => SomeAction("Sub_Three"))
-            .Add("Most Common Breed", () => SomeAction("Sub_Three"))
-            .Add("The Oldest Owner", () => SomeAction("Sub_Three"))
-            .Add("The Youngest Female Owner's Dogs", () => SomeAction("Sub_Three"))
-            .Add("The Young Owners's Courses", () => SomeAction("Sub_Three"))
-            .Add("Courses And Their Groupnumber", () => SomeAction("Sub_Three"))
-            .Add("Average Age In Courses", () => SomeAction("Sub_Three"))
+            .Add("Largest Dog", () => om.LargestDog())
+            .Add("Smallest Female Dog's Breed", () => om.SmallestFemale())
+            .Add("Most Common Breed", () => om.MostCommonBreed())
+            .Add("Castrated Dog's Owners", () => om.CastratedDogssOwners())
+            .Add("The Oldest Owner", () => om.OldestOwner())
+            .Add("The Youngest Female Owner's Dogs", () => om.YoungestFemalesDogs())
+            .Add("The Young Owners's Courses", () => om.YoungOwnersCourses())
+            .Add("Courses And Their Groupnumber", () => om.CourseGroupNumber())
+            .Add("Average Age In Courses", () => om.CourseAverageWeight())
             .Add("Back", ConsoleMenu.Close)
             .Configure(config =>
             {

@@ -15,7 +15,8 @@ namespace B4RX63_HFT_2021221.Client
             ReadMethods rm = new ReadMethods(rest);
             UpdateMethods um = new UpdateMethods(rest);
             DeleteMethods dm = new DeleteMethods(rest);
-            Menu menu = new Menu(rest, cm,rm,um,dm);
+            OtherActions om = new OtherActions(rest);
+            Menu menu = new Menu(rest, cm,rm,um,dm,om);
             menu.OpenMenu();
         }
     }
