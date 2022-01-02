@@ -34,7 +34,7 @@ namespace B4RX63_HFT_2021221.Data
                 .HasOne(dog => dog.Owner)
                 .WithMany(owner => owner.Dogs)
                 .HasForeignKey(dog => dog.OwnerId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             }
             );
             modelBuilder.Entity< Owner>(entity =>
@@ -42,7 +42,7 @@ namespace B4RX63_HFT_2021221.Data
                 entity.HasOne(owner => owner.Course)
                 .WithMany(course => course.ParticipantOwners)
                 .HasForeignKey(owner => owner.CourseId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             }
             );
             modelBuilder.Entity< Dog>(entity =>
@@ -50,7 +50,7 @@ namespace B4RX63_HFT_2021221.Data
                 entity.HasOne(dog => dog.Course)
                 .WithMany(course => course.ParticipantDogs)
                 .HasForeignKey(dog => dog.CourseId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.ClientCascade);
             }
             );
             //Courses
