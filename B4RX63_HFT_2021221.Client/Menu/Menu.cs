@@ -46,6 +46,9 @@ namespace B4RX63_HFT_2021221.Client
            .Add("Read a Dog", () => rm.ReadDog())
            .Add("Read an Owner", () => rm.ReadOwner())
            .Add("Read a Course", () => rm.ReadCourse())
+           .Add("Read all Dogs", () => rm.ReadAllDogs())
+           .Add("Read all Owners", () => rm.ReadAllOwners())
+           .Add("Read all Coursea", () => rm.ReadAllCourses())
            .Add("Back", ConsoleMenu.Close)
            .Configure(config =>
            {

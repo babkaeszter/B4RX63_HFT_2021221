@@ -82,5 +82,64 @@ namespace B4RX63_HFT_2021221.Client
             
             
         }
+        public void ReadAllDogs()
+        {
+            try
+            {
+                var result = rest.GetSingle<List<Dog>>("dog");
+                Console.WriteLine("List of the dogs:");
+                foreach (var d in result)
+                {
+                    Console.WriteLine("ID: " + d.Id + " Name: " + d.Name);
+
+                }
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Something went wrong. Try again.");
+                Console.ReadKey();
+            }
+            Console.ReadKey();
+        }
+        public void ReadAllOwners()
+        {
+            try
+            {
+                var result = rest.GetSingle<List<Owner>>("owner");
+                Console.WriteLine("List of the owners:");
+                foreach (var o in result)
+                {
+                    Console.WriteLine("ID: " + o.Id + " Name: " + o.Name);
+
+                }
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Something went wrong. Try again.");
+                Console.ReadKey();
+            }
+            Console.ReadKey();
+        }
+        public void ReadAllCourses()
+        {
+            try
+            {
+                var result = rest.GetSingle<List<Course>>("course");
+                Console.WriteLine("List of the courses:");
+                foreach (var c in result)
+                {
+                    Console.WriteLine("ID: " + c.Id + " Name: " + c.Name);
+
+                }
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Something went wrong. Try again.");
+                Console.ReadKey();
+            }
+            Console.ReadKey();
+        }
+
     }
 }
+
