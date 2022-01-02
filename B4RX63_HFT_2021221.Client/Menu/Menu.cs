@@ -14,13 +14,15 @@ namespace B4RX63_HFT_2021221.Client
         public CreateMethods cm;
         public ReadMethods rm;
         public UpdateMethods um;
+        public DeleteMethods dm;
 
-        public Menu(RestService rest, CreateMethods cm, ReadMethods rm, UpdateMethods um)
+        public Menu(RestService rest, CreateMethods cm, ReadMethods rm, UpdateMethods um, DeleteMethods dm)
         {
             this.menu = new ConsoleMenu();
             this.cm = cm;
             this.rm = rm;
             this.um = um;
+            this.dm = dm;
 
             //create submenu
             var csubMenu = new ConsoleMenu()
@@ -69,9 +71,9 @@ namespace B4RX63_HFT_2021221.Client
 
             //delete submenu
             var dsubMenu = new ConsoleMenu()
-                 .Add("Delete a Dog", () => SomeAction("Sub_One"))
-                 .Add("Delete an Owner", () => SomeAction("Sub_Two"))
-                 .Add("Delete a Course", () => SomeAction("Sub_Three"))
+                 .Add("Delete a Dog", () => dm.DeleteDog())
+                 .Add("Delete an Owner", () => dm.DeleteOwner())
+                 .Add("Delete a Course", () => dm.DeleteCourse())
                  .Add("Back", ConsoleMenu.Close)
                  .Configure(config =>
                  {
