@@ -20,6 +20,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the dog's ID:");
             int id = int.Parse(Console.ReadLine());
 
+
             if ((rest.Get<Dog>(id, "dog").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
@@ -134,7 +135,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the owner's ID:");
             int id = int.Parse(Console.ReadLine());
 
-            if ((rest.Get<Dog>(id, "owner").Equals(null)))
+            if ((rest.Get<Owner>(id, "owner").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
             }
@@ -203,7 +204,7 @@ namespace B4RX63_HFT_2021221.Client
             Console.WriteLine("Enter the course's ID:");
             int id = int.Parse(Console.ReadLine());
 
-            if ((rest.Get<Dog>(id, "course").Equals(null)))
+            if ((rest.Get<Course>(id, "course").Equals(null)))
             {
                 throw new ArgumentException("ID not found");
             }
