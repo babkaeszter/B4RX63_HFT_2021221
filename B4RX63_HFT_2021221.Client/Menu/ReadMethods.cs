@@ -35,7 +35,7 @@ namespace B4RX63_HFT_2021221.Client
             }
             catch (NullReferenceException)
             { Console.WriteLine("There's no dog with this ID");
-            Console.ReadKey()
+                Console.ReadKey();
                     }
             
         }

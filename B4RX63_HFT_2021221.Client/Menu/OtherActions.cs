@@ -21,7 +21,7 @@ namespace B4RX63_HFT_2021221.Client
             {
                 try
                 {
-                    var dog = rest.GetSingle<Dog>("stat/largestdog");
+                    var dog = rest.GetSingle<Dog>("stat/LargestDog");
                     Console.WriteLine("The largest dog:");
                     Console.WriteLine("Name: " + dog.Name);
                     Console.WriteLine("Breed: " + dog.Breed);
