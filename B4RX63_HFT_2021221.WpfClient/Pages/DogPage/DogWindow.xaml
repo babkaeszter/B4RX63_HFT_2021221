@@ -26,6 +26,7 @@
             <Button Content="Create Dog" Command="{Binding CreateDogCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Dog" Command="{Binding UpdateDogCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Dog" Command="{Binding DeleteDogCommand}" Margin="10" Padding="10"/>
+            <Button Content="Vissza" Click="Exit_Click" Margin="10" Padding="10"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Content="Name" Padding="10" Background="LightGreen"/>

@@ -17,6 +17,7 @@
             <Button Content="Kutyák" Margin="10" Padding="10" Click="Dog_Click"/>
             <Button Content="Gazdák" Margin="10" Padding="10" Click="Owner_Click"/>
             <Button Content="Tanfolyamok" Margin="10" Padding="10" Click="Course_Click"/>
+            <Button Content="Kilépés" Margin="10,50,10,10" Padding="10" Click="Exit_Click"/>
         </StackPanel>
     </Grid>
 </Window>

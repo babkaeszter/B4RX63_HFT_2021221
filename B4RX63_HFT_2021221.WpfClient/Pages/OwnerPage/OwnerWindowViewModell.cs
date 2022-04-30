@@ -62,7 +62,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage
             if (!IsInDesignMode)
             {
                 Genders = new List<Gender> { Gender.male, Gender.female };
-                Owners = new RestCollection<Owner>("http://localhost:25294", "owner", "hub");
+                Owners = new RestCollection<Owner>("http://localhost:25294/", "owner", "hub");
                 Courses = new RestCollection<Course>("http://localhost:25294/", "course", "hub");
                 CreateOwnerCommand = new RelayCommand(() =>
                 {

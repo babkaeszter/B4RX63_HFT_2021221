@@ -46,5 +46,9 @@ namespace B4RX63_HFT_2021221.WpfClient
         {
 
         }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

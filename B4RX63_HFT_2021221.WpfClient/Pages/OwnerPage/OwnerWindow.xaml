@@ -26,6 +26,7 @@
             <Button Content="Gazda léterhozása" Command="{Binding CreateOwnerCommand}" Margin="10" Padding="10"/>
             <Button Content="Gazda szerkesztése" Command="{Binding UpdateOwnerCommand}" Margin="10" Padding="10"/>
             <Button Content="Gazda törlése" Command="{Binding DeleteOwnerCommand}" Margin="10" Padding="10"/>
+            <Button Content="Vissza" Click="Exit_Click" Margin="10" Padding="10"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Content="Név" Padding="10" Background="LightGreen"/>
