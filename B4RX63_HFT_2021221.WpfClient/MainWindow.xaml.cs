@@ -31,14 +31,14 @@ namespace B4RX63_HFT_2021221.WpfClient
         private void Dog_Click(object sender, RoutedEventArgs e)
         {
             DogWindow dw = new DogWindow();
-            dw.ShowDialog();
+            dw.Show();
             this.Close();
         }
 
         private void Owner_Click(object sender, RoutedEventArgs e)
         {
             OwnerWindow ow = new OwnerWindow();
-            ow.ShowDialog();
+            ow.Show();
             this.Close();
         }
 

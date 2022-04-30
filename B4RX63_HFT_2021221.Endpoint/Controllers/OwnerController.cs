@@ -23,6 +23,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
         public OwnerController(IOwnerLogic ol, IHubContext<SignalRHub> hub)
         {
             this.ol = ol;
+            this.hub = hub;
         }
 
         // GET: /owner

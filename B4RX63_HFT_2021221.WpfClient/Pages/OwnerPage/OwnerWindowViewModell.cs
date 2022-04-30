@@ -71,7 +71,6 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage
                         Name = SelectedOwner.Name,
                         Sex = SelectedOwner.Sex,
                         Age = SelectedOwner.Age,
-                        Dogs = SelectedOwner.Dogs,
                         CourseId = SelectedOwner.CourseId
                     }
                         );

@@ -27,7 +27,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            mw.ShowDialog();
+            mw.Show();
             this.Close();
         }
     }
