@@ -1,4 +1,5 @@
 ﻿using B4RX63_HFT_2021221.WpfClient.Pages;
+using B4RX63_HFT_2021221.WpfClient.Pages.CoursePage;
 using B4RX63_HFT_2021221.WpfClient.Pages.DogPage;
 using B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage;
 using System;
@@ -44,7 +45,9 @@ namespace B4RX63_HFT_2021221.WpfClient
 
         private void Course_Click(object sender, RoutedEventArgs e)
         {
-
+            CourseWindow cw = new CourseWindow();
+            cw.Show();
+            this.Close();
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
