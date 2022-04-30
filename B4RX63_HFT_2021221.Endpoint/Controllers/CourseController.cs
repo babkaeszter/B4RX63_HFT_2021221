@@ -16,8 +16,9 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
     {
 
         ICourseLogic cl;
+        IHubContext<SignalRHub> hub;
 
-        public CourseController(ICourseLogic cl)
+        public CourseController(ICourseLogic cl, IHubContext<SignalRHub> hub)
         {
             this.cl = cl;
         }
@@ -41,6 +42,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Course value)
         {
             cl.Create(value);
+            this.hub.Clients.All.SendAsync("CourseCreated", value);
         }
 
         // PUT /course
@@ -48,13 +50,16 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Course value)
         {
             cl.Update(value);
+            this.hub.Clients.All.SendAsync("CourseUpdated", value);
         }
 
         // DELETE course/x
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var course = cl.Read(id);
             cl.Delete(id);
+            this.hub.Clients.All.SendAsync("CourseDeleted", course);
         }
     }
 }

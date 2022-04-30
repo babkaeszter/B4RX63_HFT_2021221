@@ -27,6 +27,8 @@ namespace B4RX63_HFT_2021221.Endpoint
             services.AddTransient<IOwnerRepository, OwnerRepository>();
             services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddTransient<DogSchoolDBContext, DogSchoolDBContext>();
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +44,7 @@ namespace B4RX63_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
 
             });
         }

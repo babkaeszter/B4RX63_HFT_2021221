@@ -1,6 +1,8 @@
+using B4RX63_HFT_2021221.Endpoint.Services;
 using B4RX63_HFT_2021221.Logic;
 using B4RX63_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +18,12 @@ namespace B4RX63_HFT_2021221.Controllers
     {
 
         IDogLogic dl;
+        IHubContext<SignalRHub> hub;
 
-        public DogController(IDogLogic dl)
+        public DogController(IDogLogic dl, IHubContext<SignalRHub> hub)
         {
             this.dl = dl;
+            this.hub = hub;
         }
 
         // GET: /dog
@@ -41,6 +45,7 @@ namespace B4RX63_HFT_2021221.Controllers
         public void Post([FromBody] Dog value)
         {
             dl.Create(value);
+            this.hub.Clients.All.SendAsync("DogCreated", value);
         }
 
         // PUT /dog
@@ -48,13 +53,16 @@ namespace B4RX63_HFT_2021221.Controllers
         public void Put([FromBody] Dog value)
         {
             dl.Update(value);
+            this.hub.Clients.All.SendAsync("DogUpdated", value);
         }
 
         // DELETE dog/
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var dog = dl.Read(id);
             dl.Delete(id);
+            this.hub.Clients.All.SendAsync("DogDeleted", dog);
         }
     }
 }
