@@ -94,7 +94,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
                         () => { return SelectedDog != null; }
                     );
                     UpdateDogCommand = new RelayCommand(
-                        () => { Dogs.Add(SelectedDog); }
+                        () => { Dogs.Update(SelectedDog); }
                         );
                     SelectedDog = new Dog();
                 }

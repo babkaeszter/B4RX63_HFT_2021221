@@ -84,7 +84,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage
                     () => { return SelectedOwner != null; }
                 );
                 UpdateOwnerCommand = new RelayCommand(
-                    () => { Owners.Add(SelectedOwner); }
+                    () => { Owners.Update(SelectedOwner); }
                     );
                 SelectedOwner = new Owner();
             }

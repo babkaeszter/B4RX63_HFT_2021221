@@ -76,7 +76,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.CoursePage
                     () => { return SelectedCourse != null; }
                 );
                 UpdateCourseCommand = new RelayCommand(
-                    () => { Courses.Add(SelectedCourse); }
+                    () => { Courses.Update(SelectedCourse); }
                     );
                 SelectedCourse = new Course();
             }
