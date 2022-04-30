@@ -12,10 +12,9 @@ using System.Windows.Input;
 
 namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
 {
-    class DogWindowViewModell
+    class DogWindowViewModell : ObservableRecipient
     {
-        class MainWindowViewModell : ObservableRecipient
-        {
+       
 
             public RestCollection<Dog> Dogs { get; set; }
             public RestCollection<Owner> Owners { get; set; }
@@ -62,7 +61,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
                 }
             }
 
-            public MainWindowViewModell()
+            public DogWindowViewModell()
             {
 
                 if (!IsInDesignMode)
@@ -100,6 +99,6 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
                     SelectedDog = new Dog();
                 }
             }
-        }
+        
     }
 }

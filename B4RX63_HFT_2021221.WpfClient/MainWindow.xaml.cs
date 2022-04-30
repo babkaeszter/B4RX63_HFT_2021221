@@ -1,4 +1,6 @@
 ﻿using B4RX63_HFT_2021221.WpfClient.Pages;
+using B4RX63_HFT_2021221.WpfClient.Pages.DogPage;
+using B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +37,9 @@ namespace B4RX63_HFT_2021221.WpfClient
 
         private void Owner_Click(object sender, RoutedEventArgs e)
         {
-
+            OwnerWindow ow = new OwnerWindow();
+            ow.ShowDialog();
+            this.Close();
         }
 
         private void Course_Click(object sender, RoutedEventArgs e)

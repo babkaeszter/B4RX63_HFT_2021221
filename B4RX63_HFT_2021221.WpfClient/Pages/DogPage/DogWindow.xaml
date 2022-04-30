@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:B4RX63_HFT_2021221.WpfClient.Pages.DogPage"
         mc:Ignorable="d"
-        Title="DogWindow" WindowState="Maximized">
+        Title="DogWindow" WindowState="Maximized" Width="616">
     <Window.DataContext>
         <local:DogWindowViewModell/>
     </Window.DataContext>

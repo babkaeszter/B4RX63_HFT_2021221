@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:B4RX63_HFT_2021221.WpfClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -15,7 +16,7 @@
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <Button Content="Kutyák" Margin="10" Padding="10" Click="Dog_Click"/>
             <Button Content="Gazdák" Margin="10" Padding="10" Click="Owner_Click"/>
-            <Button Content="Tanfolyamok" Margin="10" Padding="10" Click="Course_Click_1"/>
+            <Button Content="Tanfolyamok" Margin="10" Padding="10" Click="Course_Click"/>
         </StackPanel>
     </Grid>
 </Window>

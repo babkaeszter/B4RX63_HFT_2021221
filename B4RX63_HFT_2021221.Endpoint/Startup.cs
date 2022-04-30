@@ -1,4 +1,5 @@
 using B4RX63_HFT_2021221.Data;
+using B4RX63_HFT_2021221.Endpoint.Services;
 using B4RX63_HFT_2021221.Logic;
 using B4RX63_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
