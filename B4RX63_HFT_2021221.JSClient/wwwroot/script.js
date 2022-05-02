@@ -105,3 +105,30 @@ function createDog() {
         });
     
 }
+
+function createOwner() {
+    let oname = document.getElementById("oname").value;
+    let age = document.getElementById("age").value;
+    let osex = document.getElementById("osex").value == "female" ? "1" : "0";
+    let ocid = document.getElementById("ocid").value;
+
+    fetch('http://localhost:25294/owner', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                name: oname, age: age, sex: osex, courseId: ocid
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getOwners();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+}
