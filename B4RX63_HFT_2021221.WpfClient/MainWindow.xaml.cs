@@ -1,4 +1,5 @@
 ﻿using B4RX63_HFT_2021221.WpfClient.Pages;
+using B4RX63_HFT_2021221.WpfClient.Pages.DogPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;

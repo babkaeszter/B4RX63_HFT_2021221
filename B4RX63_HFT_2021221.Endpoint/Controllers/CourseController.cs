@@ -1,6 +1,8 @@
+using B4RX63_HFT_2021221.Endpoint.Services;
 using B4RX63_HFT_2021221.Logic;
 using B4RX63_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;

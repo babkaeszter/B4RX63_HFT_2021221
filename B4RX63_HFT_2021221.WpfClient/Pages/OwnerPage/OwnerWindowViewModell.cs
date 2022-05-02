@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
+namespace B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage
 {
-    public class DogWindowViewModell : ObservableRecipient
+    public class OwnerWindowViewModell : ObservableRecipient
     {
 
 
@@ -20,37 +20,35 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
         public RestCollection<Owner> Owners { get; set; }
         public RestCollection<Course> Courses { get; set; }
         public List<Gender> Genders { get; }
-        public ICommand CreateDogCommand { get; set; }
-        public ICommand UpdateDogCommand { get; set; }
-        public ICommand DeleteDogCommand { get; set; }
+        public ICommand CreateOwnerCommand { get; set; }
+        public ICommand UpdateOwnerCommand { get; set; }
+        public ICommand DeleteOwnerCommand { get; set; }
 
-        private Dog selectedDog;
+        private Owner selectedOwner;
 
-        public Dog SelectedDog
+        public Owner SelectedOwner
         {
-            get { return selectedDog; }
+            get { return selectedOwner; }
             set
             {
                 if (value != null)
                 {
-                    selectedDog = new Dog()
+                    selectedOwner = new Owner()
                     {
                         Id = value.Id,
                         Name = value.Name,
-                        Breed = value.Breed,
                         Sex = value.Sex,
-                        Castrated = value.Castrated,
-                        Weight = value.Weight,
-                        Height = value.Height,
-                        OwnerId = value.OwnerId,
+                        Age= value.Age, 
                         CourseId = value.CourseId
 
                     };
                 }
                 OnPropertyChanged();
-                (DeleteDogCommand as RelayCommand).NotifyCanExecuteChanged();
+                (DeleteOwnerCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
+
+        
 
         public static bool IsInDesignMode
         {
@@ -61,7 +59,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
             }
         }
 
-        public DogWindowViewModell()
+        public OwnerWindowViewModell()
         {
 
             if (!IsInDesignMode)
@@ -70,35 +68,30 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
                 Dogs = new RestCollection<Dog>("http://localhost:25294/", "dog", "hub");
                 Owners = new RestCollection<Owner>("http://localhost:25294", "owner", "hub");
                 Courses = new RestCollection<Course>("http://localhost:25294/", "course", "hub");
-                CreateDogCommand = new RelayCommand(() =>
+                CreateOwnerCommand = new RelayCommand(() =>
                 {
-                    Dogs.Add(new Dog()
+                    Owners.Add(new ()
                     {
-                        Name = SelectedDog.Name,
-                        Breed = SelectedDog.Breed,
-                        Sex = SelectedDog.Sex,
-                        Castrated = SelectedDog.Castrated,
-                        Weight = SelectedDog.Weight,
-                        Height = SelectedDog.Height,
-                        OwnerId = SelectedDog.OwnerId,
-                        CourseId = SelectedDog.CourseId
+                        Name = SelectedOwner.Name,
+                        Sex = SelectedOwner.Sex,
+                        Age= SelectedOwner.Age,
+                        CourseId = SelectedOwner.CourseId
                     }
                         );
                 }
                 );
-                DeleteDogCommand = new RelayCommand(() =>
+                DeleteOwnerCommand = new RelayCommand(() =>
 
                 {
-                    Dogs.Delete(SelectedDog.Id);
+                    Owners.Delete(SelectedOwner.Id);
                 },
-                    () => { return SelectedDog != null; }
+                    () => { return SelectedOwner != null; }
                 );
-                UpdateDogCommand = new RelayCommand(
-                    () => { Dogs.Add(SelectedDog); }
+                UpdateOwnerCommand = new RelayCommand(
+                    () => { Owners.Add(SelectedOwner); }
                     );
-                SelectedDog = new Dog();
+                SelectedOwner = new Owner();
             }
         }
-
     }
 }
