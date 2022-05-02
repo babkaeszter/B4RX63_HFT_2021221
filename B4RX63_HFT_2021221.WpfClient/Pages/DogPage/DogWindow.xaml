@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:B4RX63_HFT_2021221.WpfClient.Pages.DogPage"
         mc:Ignorable="d"
         Title="DogWindow" WindowState="Maximized">
-    
+    <Window.DataContext>
+        <local:DogWindowViewModell/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -21,27 +23,28 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="2">
-            <Button Content="Create Dog" Command="{Binding CreateDogCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update Dog" Command="{Binding UpdateDogCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete Dog" Command="{Binding DeleteDogCommand}" Margin="10" Padding="10"/>
+            <Button Content="Kutya létrehozása" Command="{Binding CreateDogCommand}" Margin="10" Padding="10"/>
+            <Button Content="Kutya szerkesztése" Command="{Binding UpdateDogCommand}" Margin="10" Padding="10"/>
+            <Button Content="Kutya törlése" Command="{Binding DeleteDogCommand}" Margin="10" Padding="10"/>
+            <Button Content="Vissza" Click="Exit_Click" Margin="10" Padding="10"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Label Content="Name" Padding="10" Background="LightGreen"/>
+            <Label Content="Név" Padding="10" Background="LightGreen"/>
             <TextBox x:Name="nameInput" Text="{Binding SelectedDog.Name}" Padding="10" Margin="0,0,0,10" />
-            <Label Content="Breed" Padding="10" Background="LightGreen"/>
+            <Label Content="Fajta" Padding="10" Background="LightGreen"/>
             <TextBox Text="{Binding SelectedDog.Breed}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Sex" Padding="10" Background="LightGreen"/>
+            <Label Content="Nem" Padding="10" Background="LightGreen"/>
             <ComboBox ItemsSource="{Binding Genders}" SelectedValue="{Binding SelectedDog.Sex}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Castrated" Padding="10" Background="LightGreen"/>
-            <CheckBox Margin="0,0,0,10"/>
-            <Label Content="Weight" Padding="10" Background="LightGreen"/>
+            <Label Content="Ivartalanított" Padding="10" Background="LightGreen"/>
+            <CheckBox IsChecked="{Binding SelectedDog.Castrated}" Margin="0,0,0,10"/>
+            <Label Content="Súly" Padding="10" Background="LightGreen"/>
             <TextBox Text="{Binding SelectedDog.Weight}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Height" Padding="10" Background="LightGreen"/>
+            <Label Content="Magasság" Padding="10" Background="LightGreen"/>
             <TextBox Text="{Binding SelectedDog.Height}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Owner" Padding="10" Background="LightGreen"/>
-            <ComboBox ItemsSource="{Binding Owners}" DisplayMemberPath="Name" SelectedValue="{Binding SelectedDog.Owner.Name}" />
-            <Label Content="Course" Padding="10" Background="LightGreen"/>
-            <ComboBox ItemsSource="{Binding Courses}" DisplayMemberPath="Name" SelectedValue="{Binding SelectedDog.Course.Name}" />
+            <Label Content="Gazda" Padding="10" Background="LightGreen"/>
+            <ComboBox ItemsSource="{Binding Owners}" DisplayMemberPath="Name" SelectedValue="{Binding SelectedDog.Owner.Name}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Tanfolyam" Padding="10" Background="LightGreen"/>
+            <ComboBox ItemsSource="{Binding Courses}" DisplayMemberPath="Name" SelectedValue="{Binding SelectedDog.Course.Name}" Padding="10" />
 
         </StackPanel>
     </Grid>

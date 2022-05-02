@@ -23,6 +23,7 @@ namespace B4RX63_HFT_2021221.Endpoint.Controllers
         public CourseController(ICourseLogic cl, IHubContext<SignalRHub> hub)
         {
             this.cl = cl;
+            this.hub = hub;
         }
 
         // GET: /course

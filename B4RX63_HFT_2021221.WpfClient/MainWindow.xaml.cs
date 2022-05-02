@@ -1,5 +1,7 @@
 ﻿using B4RX63_HFT_2021221.WpfClient.Pages;
+using B4RX63_HFT_2021221.WpfClient.Pages.CoursePage;
 using B4RX63_HFT_2021221.WpfClient.Pages.DogPage;
+using B4RX63_HFT_2021221.WpfClient.Pages.OwnerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,18 +32,26 @@ namespace B4RX63_HFT_2021221.WpfClient
         private void Dog_Click(object sender, RoutedEventArgs e)
         {
             DogWindow dw = new DogWindow();
-            dw.ShowDialog();
+            dw.Show();
             this.Close();
         }
 
         private void Owner_Click(object sender, RoutedEventArgs e)
         {
-
+            OwnerWindow ow = new OwnerWindow();
+            ow.Show();
+            this.Close();
         }
 
         private void Course_Click(object sender, RoutedEventArgs e)
         {
-
+            CourseWindow cw = new CourseWindow();
+            cw.Show();
+            this.Close();
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

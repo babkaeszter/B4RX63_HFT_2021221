@@ -12,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
+namespace B4RX63_HFT_2021221.WpfClient.Pages.CoursePage
 {
     /// <summary>
-    /// Interaction logic for DogWindow.xaml
+    /// Interaction logic for CourseWindow.xaml
     /// </summary>
-    public partial class DogWindow : Window
+    public partial class CourseWindow : Window
     {
-        public DogWindow()
+        public CourseWindow()
         {
             InitializeComponent();
         }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();

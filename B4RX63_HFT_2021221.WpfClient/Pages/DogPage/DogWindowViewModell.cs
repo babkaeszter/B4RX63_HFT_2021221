@@ -14,15 +14,15 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
 {
     public class DogWindowViewModell : ObservableRecipient
     {
+       
 
-
-        public RestCollection<Dog> Dogs { get; set; }
-        public RestCollection<Owner> Owners { get; set; }
-        public RestCollection<Course> Courses { get; set; }
-        public List<Gender> Genders { get; }
-        public ICommand CreateDogCommand { get; set; }
-        public ICommand UpdateDogCommand { get; set; }
-        public ICommand DeleteDogCommand { get; set; }
+            public RestCollection<Dog> Dogs { get; set; }
+            public RestCollection<Owner> Owners { get; set; }
+            public RestCollection<Course> Courses { get; set; }
+            public List<Gender> Genders { get; }
+            public ICommand CreateDogCommand { get; set; }
+            public ICommand UpdateDogCommand { get; set; }
+            public ICommand DeleteDogCommand { get; set; }
 
         private Dog selectedDog;
 
@@ -88,17 +88,17 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
                 );
                 DeleteDogCommand = new RelayCommand(() =>
 
-                {
-                    Dogs.Delete(SelectedDog.Id);
-                },
-                    () => { return SelectedDog != null; }
-                );
-                UpdateDogCommand = new RelayCommand(
-                    () => { Dogs.Add(SelectedDog); }
+                    {
+                        Dogs.Delete(SelectedDog.Id);
+                    },
+                        () => { return SelectedDog != null; }
                     );
-                SelectedDog = new Dog();
+                    UpdateDogCommand = new RelayCommand(
+                        () => { Dogs.Update(SelectedDog); }
+                        );
+                    SelectedDog = new Dog();
+                }
             }
-        }
-
+        
     }
 }
