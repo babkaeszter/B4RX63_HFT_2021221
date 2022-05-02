@@ -30,8 +30,8 @@
             </table>
             <form>
                 <div class="input-group">
-                    <label for="name">Név</label>
-                    <input type="text" id="name" name="name" />
+                    <label for="dname">Név</label>
+                    <input type="text" id="dname" name="dname" />
                 </div>
                 <div class="input-group">
                     <label for="breed">Fajta</label>
@@ -62,16 +62,15 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="cid">Tanfolyam azonosító</label>
-                    <select id="cid" name="cid">
-                        
+                    <label for="dcid">Tanfolyam azonosító</label>
+                    <select id="dcid" name="dcid">
                     </select>
                 </div>
                 <button type="button">Hozzáadás</button>
             </form>
         </div>
-        <div class"ownerarea">
-            <h1>Gazdák</h1>
+        <h1>Gazdák</h1>
+        <div class="ownerarea">
             <table>
                 <thead>
                     <tr>
@@ -85,9 +84,32 @@
                 <tbody id="owners">
                 </tbody>
             </table>
+            <form>
+                <div class="input-group">
+                    <label for="name">Név</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="input-group">
+                    <label for="age">Kor</label>
+                    <input type="number" id="age" name="age" />
+                </div>
+                <div class="input-group">
+                    <label for="osex">Nem</label>
+                    <select id="osex" name="osex">
+                        <option value="male">Férfi</option>
+                        <option value="female">Nő</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="cid">Tanfolyam azonosító</label>
+                    <select id="ocid" name="cid">
+                    </select>
+                </div>
+                <button type="button">Hozzáadás</button>
+            </form>
         </div>
-        <div class"coursearea">
-            <h1>Tanfolyamok</h1>
+        <h1>Tanfolyamok</h1>
+        <div class="coursearea">
             <table>
                 <thead>
                     <tr>
@@ -100,6 +122,22 @@
                 <tbody id="courses">
                 </tbody>
             </table>
+            <form>
+                <div class="input-group">
+                    <label for="name">Név</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="input-group">
+                    <label for="organizer">Szervező</label>
+                    <input type="text" id="organizer" name="organizer" />
+                </div>
+                <div class="input-group">
+                    <label for="trainer">Kiképző</label>
+                    <input type="text" id="trainer" name="trainer" />
+                </div>
+
+                <button type="button">Hozzáadás</button>
+            </form>
         </div>
     </div>
     <script src="script.js"></script>

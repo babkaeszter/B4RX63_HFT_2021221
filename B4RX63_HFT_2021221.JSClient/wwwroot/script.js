@@ -53,10 +53,43 @@ function setTabledata() {
         sel.add(option);
     });
     courses.forEach(c => {
-        let sel = document.getElementById('cid');
+        let sel1 = document.getElementById('ocid');
+        let sel2 = document.getElementById('dcid');
         var option = document.createElement("option");
         option.value = c.id;
         option.text = c.id;
-        sel.add(option);
+        sel1.add(option);
+        sel2.add(option);
     });
+}
+
+function createDog() {
+    let dname = document.getElementById("dname").value;
+    let breed = document.getElementById("breed").value;
+    let dsex = document.getElementById("dsex").value;
+    let castrated = document.getElementById("castrated").value;
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value;
+    let oid = document.getElementById("oid").value;
+    let dcid = document.getElementById("dcid").value;
+
+    fetch('https://jsondatabase-7c304-default-rtdb.europewest1.firebasedatabase.app/orders.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                orderCount: "20",
+                orderName: "Fogzománcvédõ",
+                orderPrice: "1000"
+            }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
