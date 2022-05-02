@@ -40,6 +40,12 @@ namespace B4RX63_HFT_2021221.Endpoint
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:5000"));
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

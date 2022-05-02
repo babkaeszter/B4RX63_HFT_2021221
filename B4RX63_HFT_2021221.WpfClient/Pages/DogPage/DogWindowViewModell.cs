@@ -68,7 +68,7 @@ namespace B4RX63_HFT_2021221.WpfClient.Pages.DogPage
             {
                 Genders = new List<Gender> { Gender.male, Gender.female };
                 Dogs = new RestCollection<Dog>("http://localhost:25294/", "dog", "hub");
-                Owners = new RestCollection<Owner>("http://localhost:25294", "owner", "hub");
+                Owners = new RestCollection<Owner>("http://localhost:25294/", "owner", "hub");
                 Courses = new RestCollection<Course>("http://localhost:25294/", "course", "hub");
                 CreateDogCommand = new RelayCommand(() =>
                 {
