@@ -4,7 +4,6 @@ let courses = [];
 fetch('http://localhost:25294/dog')
     .then(x => x.json()).then(y => {
         dogs = y;
-        console.log(y);
         displayDogs();
     });
 fetch('http://localhost:25294/owner')
@@ -29,8 +28,15 @@ function displayDogs() {
     });
 }
 function displayOwners() {
-    dogs.forEach(t => { });
+    owners.forEach(o => {
+        if (o.sex == 1) { gender = "Nõ" } else { gender = "Férfi" };
+        document.getElementById('owners').innerHTML +=
+            "<tr><td>" + o.id + "</td><td>" + o.name + "</td><td>" + o.age + "</td><td>" + gender + "</td><td>"+ o.courseId + "</td></tr>";
+    });
+
 }
 function displayCourses() {
-    dogs.forEach(t => { });
+    courses.forEach(c => {
+        document.getElementById('courses').innerHTML +=
+            "<tr><td>" + c.id + "</td><td>" + c.name + "</td><td>" + c.organizer + "</td><td>" + c.trainer + "</td></tr>";});
 }
