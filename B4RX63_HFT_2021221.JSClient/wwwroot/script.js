@@ -1,22 +1,34 @@
 let dogs = [];
 let owners = [];
 let courses = [];
-fetch('http://localhost:25294/dog')
-    .then(x => x.json()).then(y => {
-        dogs = y;
-        displayDogs();
-    });
-fetch('http://localhost:25294/owner')
-    .then(x => x.json()).then(y => {
-        owners = y;
-        displayOwners();
-    });
-fetch('http://localhost:25294/course')
-    .then(x => x.json()).then(y => {
-        courses = y;
-        displayCourses();
-        setTabledata();
-    });
+
+getDogs();
+getOwners();
+getCourses();
+async function getDogs() {
+    await fetch('http://localhost:25294/dog')
+        .then(x => x.json()).then(y => {
+            dogs = y;
+            console.log(y);
+            displayDogs();
+        });
+}
+async function getOwners() {
+    await fetch('http://localhost:25294/owner')
+        .then(x => x.json()).then(y => {
+            owners = y;
+            displayOwners();
+        });
+}
+
+async function getCourses() {
+    await fetch('http://localhost:25294/course')
+        .then(x => x.json()).then(y => {
+            courses = y;
+            displayCourses();
+            setTabledata();
+        });
+}
 
 
 
@@ -66,30 +78,30 @@ function setTabledata() {
 function createDog() {
     let dname = document.getElementById("dname").value;
     let breed = document.getElementById("breed").value;
-    let dsex = document.getElementById("dsex").value;
+    let dsex = document.getElementById("dsex").value=="female"?"1":"0";
     let castrated = document.getElementById("castrated").value;
     let weight = document.getElementById("weight").value;
     let height = document.getElementById("height").value;
     let oid = document.getElementById("oid").value;
     let dcid = document.getElementById("dcid").value;
 
-    fetch('https://jsondatabase-7c304-default-rtdb.europewest1.firebasedatabase.app/orders.json', {
+    fetch('http://localhost:25294/dog', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(
             {
-                orderCount: "20",
-                orderName: "Fogzománcvédõ",
-                orderPrice: "1000"
+                name:dname, breed:breed, sex:dsex, castrated:castrated, weight:weight, height:height, ownerId:oid, courseId:dcid
             }),
     })
-        .then(response => response.json())
+        .then(response => response)
         .then(data => {
             console.log('Success:', data);
+            getDogs();
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+    
 }
