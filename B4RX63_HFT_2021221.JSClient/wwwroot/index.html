@@ -9,36 +9,77 @@
 </head>
 <body>
     <div class="display">
-        <div class"dogarea">
-            <h1>Kutyák</h1>
+        <h1>Kutyák</h1>
+        <div class="dogarea">
             <table>
                 <thead>
                     <tr>
-                        <td>Id</td>
-                        <td>Név</td>
-                        <td>Fajta</td>
-                        <td>Nem</td>
-                        <td>Ivartalanított?</td>
-                        <td>Súly</td>
-                        <td>Magasság</td>
-                        <td>Gazdi azonosító</td>
-                        <td>Tanfolyam azonosító</td>
+                        <th>Id</th>
+                        <th>Név</th>
+                        <th>Fajta</th>
+                        <th>Nem</th>
+                        <th>Ivartalanított?</th>
+                        <th>Súly</th>
+                        <th>Magasság</th>
+                        <th>Gazdi azonosító</th>
+                        <th>Tanfolyam azonosító</th>
                     </tr>
                 </thead>
                 <tbody id="dogs">
                 </tbody>
             </table>
+            <form>
+                <div class="input-group">
+                    <label for="name">Név</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="input-group">
+                    <label for="breed">Fajta</label>
+                    <input type="text" id="breed" name="breed" />
+                </div>
+                <div class="input-group">
+                    <label for="dsex">Nem</label>
+                    <select id="dsex" name="dsex">
+                        <option value="male">Kan</option>
+                        <option value="female">Szuka</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="castrated">Ivartalanított</label>
+                    <input type="checkbox" id="castrated" name="castrated" />
+                </div>
+                <div class="input-group">
+                    <label for="weight">Súly</label>
+                    <input type="number" id="weight" name="weight" />
+                </div>
+                <div class="input-group">
+                    <label for="height">Magasság</label>
+                    <input type="number" id="height" name="height" />
+                </div>
+                <div class="input-group">
+                    <label for="oid">Gazdi azonosító</label>
+                    <select id="oid" name="oid">
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="cid">Tanfolyam azonosító</label>
+                    <select id="cid" name="cid">
+                        
+                    </select>
+                </div>
+                <button type="button">Hozzáadás</button>
+            </form>
         </div>
         <div class"ownerarea">
             <h1>Gazdák</h1>
             <table>
                 <thead>
                     <tr>
-                        <td>Azonosító</td>
-                        <td>Név</td>
-                        <td>Kor</td>
-                        <td>Nem</td>
-                        <td>Tanfolyam azonosító</td>
+                        <th>Azonosító</th>
+                        <th>Név</th>
+                        <th>Kor</th>
+                        <th>Nem</th>
+                        <th>Tanfolyam azonosító</th>
                     </tr>
                 </thead>
                 <tbody id="owners">
@@ -50,10 +91,10 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Azonosító</td>
-                        <td>Név</td>
-                        <td>Szervező</td>
-                        <td>Kiképző</td>
+                        <th>Azonosító</th>
+                        <th>Név</th>
+                        <th>Szervező</th>
+                        <th>Kiképző</th>
                     </tr>
                 </thead>
                 <tbody id="courses">

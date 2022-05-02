@@ -15,7 +15,10 @@ fetch('http://localhost:25294/course')
     .then(x => x.json()).then(y => {
         courses = y;
         displayCourses();
+        setTabledata();
     });
+
+
 
 
 
@@ -39,4 +42,21 @@ function displayCourses() {
     courses.forEach(c => {
         document.getElementById('courses').innerHTML +=
             "<tr><td>" + c.id + "</td><td>" + c.name + "</td><td>" + c.organizer + "</td><td>" + c.trainer + "</td></tr>";});
+}
+
+function setTabledata() {
+    owners.forEach(o => {
+        let sel = document.getElementById('oid');
+        var option = document.createElement("option");
+        option.value = o.id;
+        option.text = o.id;
+        sel.add(option);
+    });
+    courses.forEach(c => {
+        let sel = document.getElementById('cid');
+        var option = document.createElement("option");
+        option.value = c.id;
+        option.text = c.id;
+        sel.add(option);
+    });
 }
