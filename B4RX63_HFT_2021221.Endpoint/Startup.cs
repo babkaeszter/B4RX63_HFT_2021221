@@ -44,7 +44,7 @@ namespace B4RX63_HFT_2021221.Endpoint
                 .AllowCredentials()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:5000"));
+                .WithOrigins("http://localhost:25977"));
 
             app.UseRouting();
 
