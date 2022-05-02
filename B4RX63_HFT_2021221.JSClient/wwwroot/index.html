@@ -23,6 +23,7 @@
                         <th>Magasság</th>
                         <th>Gazdi azonosító</th>
                         <th>Tanfolyam azonosító</th>
+                        <th>Műveletek</th>
                     </tr>
                 </thead>
                 <tbody id="dogs">
@@ -66,7 +67,7 @@
                     <select id="dcid" name="dcid">
                     </select>
                 </div>
-                <button type="button" onclick="createDog()">Hozzáadás</button>
+                <button onclick="createDog()">Hozzáadás</button>
             </form>
         </div>
         <h1>Gazdák</h1>
@@ -79,6 +80,7 @@
                         <th>Kor</th>
                         <th>Nem</th>
                         <th>Tanfolyam azonosító</th>
+                        <th>Műveletek</th>
                     </tr>
                 </thead>
                 <tbody id="owners">
@@ -101,11 +103,11 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="cid">Tanfolyam azonosító</label>
+                    <label for="ocid">Tanfolyam azonosító</label>
                     <select id="ocid" name="ocid">
                     </select>
                 </div>
-                <button type="button" onclick="createOwner()">Hozzáadás</button>
+                <button onclick="createOwner()">Hozzáadás</button>
             </form>
         </div>
         <h1>Tanfolyamok</h1>
@@ -117,6 +119,7 @@
                         <th>Név</th>
                         <th>Szervező</th>
                         <th>Kiképző</th>
+                        <th>Műveletek</th>
                     </tr>
                 </thead>
                 <tbody id="courses">
@@ -124,8 +127,8 @@
             </table>
             <form>
                 <div class="input-group">
-                    <label for="name">Név</label>
-                    <input type="text" id="name" name="name" />
+                    <label for="cname">Név</label>
+                    <input type="text" id="cname" name="cname" />
                 </div>
                 <div class="input-group">
                     <label for="organizer">Szervező</label>
@@ -136,7 +139,7 @@
                     <input type="text" id="trainer" name="trainer" />
                 </div>
 
-                <button type="button">Hozzáadás</button>
+                <button onclick="createCourse()">Hozzáadás</button>
             </form>
         </div>
     </div>
