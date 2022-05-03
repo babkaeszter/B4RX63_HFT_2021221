@@ -69,6 +69,7 @@
                 </div>
                 <button onclick="createDog()">Hozzáadás</button>
             </form>
+
             <form id="updateDog" class="dnone">
                 <input type="hidden" id="did">
                 <div class="input-group">
@@ -127,10 +128,11 @@
                 <tbody id="owners">
                 </tbody>
             </table>
+
             <form id="crowner">
                 <div class="input-group">
-                    <label for="name">Név</label>
-                    <input type="text" id="name" name="name" />
+                    <label for="oname">Név</label>
+                    <input type="text" id="oname" name="oname" />
                 </div>
                 <div class="input-group">
                     <label for="age">Kor</label>
@@ -149,32 +151,35 @@
                     </select>
                 </div>
                 <button onclick="createOwner()">Hozzáadás</button>
+
+
             </form>
-            <form id="updateowner" class="dnone">
-                <input type="hidden" id="oid">
+            <form id="updateOwner" class="dnone">
+                <input type="hidden" id="uoid">
                 <div class="input-group">
-                    <label for="name">Név</label>
-                    <input type="text" id="name" name="name" />
+                    <label for="uoname">Név</label>
+                    <input type="text" id="uoname" name="uoname" />
                 </div>
                 <div class="input-group">
-                    <label for="age">Kor</label>
-                    <input type="number" id="age" name="age" />
+                    <label for="uage">Kor</label>
+                    <input type="number" id="uage" name="uage" />
                 </div>
                 <div class="input-group">
-                    <label for="osex">Nem</label>
-                    <select id="osex" name="osex">
+                    <label for="uosex">Nem</label>
+                    <select id="uosex" name="uosex">
                         <option value="male">Férfi</option>
                         <option value="female">Nő</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="ocid">Tanfolyam azonosító</label>
-                    <select id="ocid" name="ocid">
+                    <label for="uocid">Tanfolyam azonosító</label>
+                    <select id="uocid" name="uocid">
                     </select>
                 </div>
-                <button onclick="createOwner()">Hozzáadás</button>
+                <button onclick="createOwner()">Módosítás</button>
             </form>
         </div>
+
         <h1>Tanfolyamok</h1>
         <div class="coursearea">
             <table>
@@ -206,21 +211,23 @@
 
                 <button onclick="createCourse()">Hozzáadás</button>
             </form>
-            <form id="courseupdate" class="dnone">
+
+            <form id="updateCourse" class="dnone">
+                <input type="hidden" id="ucid">
                 <div class="input-group">
-                    <label for="cname">Név</label>
-                    <input type="text" id="cname" name="cname" />
+                    <label for="ucname">Név</label>
+                    <input type="text" id="ucname" name="ucname" />
                 </div>
                 <div class="input-group">
-                    <label for="organizer">Szervező</label>
-                    <input type="text" id="organizer" name="organizer" />
+                    <label for="uorganizer">Szervező</label>
+                    <input type="text" id="uorganizer" name="uorganizer" />
                 </div>
                 <div class="input-group">
-                    <label for="trainer">Kiképző</label>
-                    <input type="text" id="trainer" name="trainer" />
+                    <label for="utrainer">Kiképző</label>
+                    <input type="text" id="utrainer" name="utrainer" />
                 </div>
 
-                <button onclick="createCourse()">Módosítás</button>
+                <button onclick="updateCourse()">Módosítás</button>
             </form>
         </div>
     </div>

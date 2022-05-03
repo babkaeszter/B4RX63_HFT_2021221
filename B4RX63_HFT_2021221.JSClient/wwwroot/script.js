@@ -302,27 +302,25 @@ function removeCourse(id) {
 //SHOW UPDATE FUNCTIONS
 
 function showUpdateDog(id) {
-    document.getElementById("crdog").classList.add("dnone");
-    let form = document.getElementById("updateDog");
+    let oname = document.getElementById("oname").value;
+    let age = document.getElementById("age").value;
+    let osex = document.getElementById("osex").value == "female" ? "1" : "0";
+    let ocid = document.getElementById("ocid").value;
+    document.getElementById("udsex").value == dog["sex"] == "1" ? "female" : "male";
+}
+
+
+function showUpdateOwner(id) {
+    document.getElementById("crowner").classList.add("dnone");
+    let form = document.getElementById("updateOwner");
     form.classList.remove("dnone");
 
-    let dog = dogs.find(d => d['id'] == id);
-
-    document.getElementById("did").value = dog['id'];
-    document.getElementById("udname").value = dog['name'];
-    document.getElementById("ubreed").value=dog['breed'];
-    document.getElementById("udsex").value == dog["sex"] == "1" ? "female" : "male";
-    if (dog['castrated'] == "1") {
-        document.getElementById("ucastrated").checked = true;
-    }
-    else {
-        document.getElementById("ucastrated").checked = false;
-    }
-    
-    document.getElementById("uweight").value = dog['weight'];
-    document.getElementById("uheight").value=dog['height'];
-    document.getElementById("uoid").value = dog['ownerId'];
-    document.getElementById("udcid").value=dog['courseId'];
+    let owner = owners.find(o => o['id'] == id);
+    document.getElementById("uoid").value = owner['id'];
+    document.getElementById("uoname").value=owner['name'];
+    document.getElementById("uage").value = owner['age'];
+    document.getElementById("uosex").value = owner['sex']=="0"?"male":"female";
+    document.getElementById("uocid").value = owner['courseId'];
 }
 
 //UPDATE FUNCTIONS
@@ -352,6 +350,33 @@ function updateDog() {
         .then(data => {
             console.log('Success:', data);
             getDogs();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+}
+function updateOwner() {
+    let oid = document.getElementById("uoid").value;
+    let oname = document.getElementById("uoname").value;
+    let age = document.getElementById("uage").value;
+    let osex = document.getElementById("uosex").value == "female" ? "1" : "0";
+    let ocid = document.getElementById("uocid").value;
+
+    fetch('http://localhost:25294/owner', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+               id:oid, name: oname, age: age, sex: osex, courseId: ocid
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getOwners();
         })
         .catch((error) => {
             console.error('Error:', error);
