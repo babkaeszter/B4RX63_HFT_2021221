@@ -1,12 +1,14 @@
 let dogs = [];
 let owners = [];
 let courses = [];
-const connection;
+let connection=null;
 getDogs();
 getOwners();
 getCourses();
 setupSignalR();
 
+
+//SIGNALR
 function setupSignalR() {
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("http://localhost:25294/hub")
@@ -24,6 +26,11 @@ function setupSignalR() {
         });
     connection.on
         (
+            "DogUpdated", (user, message) => {
+                getDogs();
+            });
+    connection.on
+        (
             "OwnerCreated", (user, message) => {
                 getOwners();
         });
@@ -34,12 +41,22 @@ function setupSignalR() {
         });
     connection.on
         (
+            "OwnerUpdated", (user, message) => {
+                getOwners();
+            });
+    connection.on
+        (
             "CourseCreated", (user, message) => {
                 getCourses();
         });
     connection.on
         (
             "CourseDeleted", (user, message) => {
+                getCourses();
+        });
+    connection.on
+        (
+            "CourseUpdated", (user, message) => {
                 getCourses();
             });
 
@@ -60,6 +77,7 @@ async function start() {
 };
 
 
+//GET FUNCTIONS
 async function getDogs() {
     await fetch('http://localhost:25294/dog')
         .then(x => x.json()).then(y => {
@@ -86,7 +104,7 @@ async function getCourses() {
 
 
 
-
+//DISPLAY FUNCTIONS
 
 function displayDogs() {
     //document.getElementById('dogs').innerHTML = ""
@@ -94,7 +112,10 @@ function displayDogs() {
         if (d.sex == 1) { gender = "Szuka" } else { gender = "Kan" };
         if (d.castrated == 1) { castrated = "Igen" } else { castrated = "Nem" };
         document.getElementById('dogs').innerHTML +=
-            "<tr><td>" + d.id + "</td><td>" + d.name + "</td><td>" + d.breed + "</td><td>" + gender + "</td><td>" + castrated + "</td><td>" + d.weight + "</td><td>" + d.height + "</td><td>" + d.ownerId + "</td > <td>" + d.courseId + "</td><td><button onclick='removeDog()'>Törlés</button></td></tr>";
+            "<tr><td>" + d.id + "</td><td>" + d.name + "</td><td>" + d.breed + "</td><td>" + gender + "</td><td>" + castrated +
+            "</td><td>" + d.weight + "</td><td>" + d.height + "</td><td>" + d.ownerId + "</td > <td>" + d.courseId +
+            "</td><td><button onclick='removeDog()'>Törlés</button>" +
+        "<button onclick='showUpdateDog("+d.id+")'>Módosítás</button></td ></tr > ";
     });
 }
 function displayOwners() {
@@ -102,35 +123,46 @@ function displayOwners() {
     owners.forEach(o => {
         if (o.sex == 1) { gender = "Nõ" } else { gender = "Férfi" };
         document.getElementById('owners').innerHTML +=
-            "<tr><td>" + o.id + "</td><td>" + o.name + "</td><td>" + o.age + "</td><td>" + gender + "</td><td>" + o.courseId + "</td><td><button onclick='removeOwner()'>Törlés</button></td></tr>";
+            "<tr><td>" + o.id + "</td><td>" + o.name + "</td><td>" + o.age + "</td><td>" + gender + "</td><td>" + o.courseId +
+            "</td><td><button onclick='removeOwner()'>Törlés</button>" +
+        "<button onclick='showUpdateOwner(" + o.id +")'>Módosítás</button></td ></tr > ";
     });
 
 }
 function displayCourses() {
     //document.getElementById('dogs').innerHTML =""
     courses.forEach(c => {
-        document.getElementById('courses').innerHTML = "";
-        "<tr><td>" + c.id + "</td><td>" + c.name + "</td><td>" + c.organizer + "</td><td>" + c.trainer + "</td><td><button onclick='removeCourse()'>Törlés</button></td></tr>";});
+        document.getElementById('courses').innerHTML +=
+            "<tr><td>" + c.id + "</td><td>" + c.name + "</td><td>" + c.organizer + "</td><td>"
+            + c.trainer + "</td><td><button onclick='removeCourse()'>Törlés</button>" +
+        "<button onclick='showUpdateCourse(" + c.id +")'>Módosítás</button></td ></tr > ";
+    });
 }
 
 function setTabledata() {
     owners.forEach(o => {
-        let sel = document.getElementById('oid');
+        let sel1 = document.getElementById('oid');
+        let sel2 = document.getElementById('uoid');
         var option = document.createElement("option");
         option.value = o.id;
         option.text = o.id;
-        sel.add(option);
+        sel1.add(option);
+        sel1.add(option);
     });
     courses.forEach(c => {
         let sel1 = document.getElementById('ocid');
         let sel2 = document.getElementById('dcid');
+        let sel3 = document.getElementById('udcid');
         var option = document.createElement("option");
         option.value = c.id;
         option.text = c.id;
         sel1.add(option);
         sel2.add(option);
+        sel3.add(option);
     });
 }
+
+//CREATE FUNCTIONS
 
 function createDog() {
     let dname = document.getElementById("dname").value;
@@ -215,6 +247,9 @@ function createCourse() {
         });
 
 }
+
+
+///DELETE FUNCTIONS
 function removeDog(id) {
     fetch('http://localhost:25294/dog/'+id, {
         method: 'DELETE',
@@ -262,4 +297,64 @@ function removeCourse(id) {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+//SHOW UPDATE FUNCTIONS
+
+function showUpdateDog(id) {
+    document.getElementById("crdog").classList.add("dnone");
+    let form = document.getElementById("updateDog");
+    form.classList.remove("dnone");
+
+    let dog = dogs.find(d => d['id'] == id);
+
+    document.getElementById("did").value = dog['id'];
+    document.getElementById("udname").value = dog['name'];
+    document.getElementById("ubreed").value=dog['breed'];
+    document.getElementById("udsex").value == dog["sex"] == "1" ? "female" : "male";
+    if (dog['castrated'] == "1") {
+        document.getElementById("ucastrated").checked = true;
+    }
+    else {
+        document.getElementById("ucastrated").checked = false;
+    }
+    
+    document.getElementById("uweight").value = dog['weight'];
+    document.getElementById("uheight").value=dog['height'];
+    document.getElementById("uoid").value = dog['ownerId'];
+    document.getElementById("udcid").value=dog['courseId'];
+}
+
+//UPDATE FUNCTIONS
+
+function updateDog() {
+    let id = document.getElementById("did").value;
+    let dname = document.getElementById("udname").value;
+    let breed = document.getElementById("ubreed").value;
+    let dsex = document.getElementById("udsex").value == "female" ? "1" : "0";
+    let castrated = document.getElementById("ucastrated").checked;
+    let weight = document.getElementById("uweight").value;
+    let height = document.getElementById("uheight").value;
+    let oid = document.getElementById("uoid").value;
+    let dcid = document.getElementById("udcid").value;
+
+    fetch('http://localhost:25294/dog', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+               id:id, name: dname, breed: breed, sex: dsex, castrated: castrated, weight: weight, height: height, ownerId: oid, courseId: dcid
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getDogs();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
 }

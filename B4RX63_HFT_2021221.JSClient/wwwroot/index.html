@@ -29,7 +29,7 @@
                 <tbody id="dogs">
                 </tbody>
             </table>
-            <form>
+            <form id="crdog">
                 <div class="input-group">
                     <label for="dname">Név</label>
                     <input type="text" id="dname" name="dname" />
@@ -69,6 +69,47 @@
                 </div>
                 <button onclick="createDog()">Hozzáadás</button>
             </form>
+            <form id="updateDog" class="dnone">
+                <input type="hidden" id="did">
+                <div class="input-group">
+                    <label for="udname">Név</label>
+                    <input type="text" id="udname" name="udname" />
+                </div>
+                <div class="input-group">
+                    <label for="ubreed">Fajta</label>
+                    <input type="text" id="ubreed" name="ubreed" />
+                </div>
+                <div class="input-group">
+                    <label for="udsex">Nem</label>
+                    <select id="udsex" name="dsex">
+                        <option value="male">Kan</option>
+                        <option value="female">Szuka</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="ucastrated">Ivartalanított</label>
+                    <input type="checkbox" id="ucastrated" name="ucastrated" />
+                </div>
+                <div class="input-group">
+                    <label for="uweight">Súly</label>
+                    <input type="number" id="uweight" name="uweight" />
+                </div>
+                <div class="input-group">
+                    <label for="uheight">Magasság</label>
+                    <input type="number" id="uheight" name="uheight" />
+                </div>
+                <div class="input-group">
+                    <label for="uoid">Gazdi azonosító</label>
+                    <select id="uoid" name="uoid">
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="udcid">Tanfolyam azonosító</label>
+                    <select id="udcid" name="udcid">
+                    </select>
+                </div>
+                <button onclick="updateDog()">Módosítás</button>
+            </form>
         </div>
         <h1>Gazdák</h1>
         <div class="ownerarea">
@@ -86,7 +127,31 @@
                 <tbody id="owners">
                 </tbody>
             </table>
-            <form>
+            <form id="crowner">
+                <div class="input-group">
+                    <label for="name">Név</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="input-group">
+                    <label for="age">Kor</label>
+                    <input type="number" id="age" name="age" />
+                </div>
+                <div class="input-group">
+                    <label for="osex">Nem</label>
+                    <select id="osex" name="osex">
+                        <option value="male">Férfi</option>
+                        <option value="female">Nő</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="ocid">Tanfolyam azonosító</label>
+                    <select id="ocid" name="ocid">
+                    </select>
+                </div>
+                <button onclick="createOwner()">Hozzáadás</button>
+            </form>
+            <form id="updateowner" class="dnone">
+                <input type="hidden" id="oid">
                 <div class="input-group">
                     <label for="name">Név</label>
                     <input type="text" id="name" name="name" />
@@ -125,7 +190,7 @@
                 <tbody id="courses">
                 </tbody>
             </table>
-            <form>
+            <form id="crcourse">
                 <div class="input-group">
                     <label for="cname">Név</label>
                     <input type="text" id="cname" name="cname" />
@@ -140,6 +205,22 @@
                 </div>
 
                 <button onclick="createCourse()">Hozzáadás</button>
+            </form>
+            <form id="courseupdate" class="dnone">
+                <div class="input-group">
+                    <label for="cname">Név</label>
+                    <input type="text" id="cname" name="cname" />
+                </div>
+                <div class="input-group">
+                    <label for="organizer">Szervező</label>
+                    <input type="text" id="organizer" name="organizer" />
+                </div>
+                <div class="input-group">
+                    <label for="trainer">Kiképző</label>
+                    <input type="text" id="trainer" name="trainer" />
+                </div>
+
+                <button onclick="createCourse()">Módosítás</button>
             </form>
         </div>
     </div>

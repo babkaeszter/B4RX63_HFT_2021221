@@ -36,3 +36,7 @@ input
     display: flex;
     justify-content: center;
 }
+.dnone
+{
+    display:none;
+}
