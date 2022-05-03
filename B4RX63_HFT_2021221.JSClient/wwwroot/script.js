@@ -1,15 +1,69 @@
 let dogs = [];
 let owners = [];
 let courses = [];
-
+const connection;
 getDogs();
 getOwners();
 getCourses();
+setupSignalR();
+
+function setupSignalR() {
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:25294/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+    connection.on
+        (
+            "DogCreated", (user, message) => {
+                getDogs();
+        });
+    connection.on
+        (
+            "DogDeleted", (user, message) => {
+                getDogs();
+        });
+    connection.on
+        (
+            "OwnerCreated", (user, message) => {
+                getOwners();
+        });
+    connection.on
+        (
+            "OwnerDeleted", (user, message) => {
+                getOwners();
+        });
+    connection.on
+        (
+            "CourseCreated", (user, message) => {
+                getCourses();
+        });
+    connection.on
+        (
+            "CourseDeleted", (user, message) => {
+                getCourses();
+            });
+
+    connection.onclose
+        (async () => {await start();});
+    start();
+
+}
+
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
+
+
 async function getDogs() {
     await fetch('http://localhost:25294/dog')
         .then(x => x.json()).then(y => {
             dogs = y;
-            console.log(y);
             displayDogs();
         });
 }
