@@ -323,6 +323,18 @@ function showUpdateOwner(id) {
     document.getElementById("uocid").value = owner['courseId'];
 }
 
+function showUpdateCourse(id) {
+    document.getElementById("crcourse").classList.add("dnone");
+    let form = document.getElementById("updateCourse");
+    form.classList.remove("dnone");
+
+    let course = courses.find(c => c['id'] == id);
+    document.getElementById("ucid").value = course['id'];
+    document.getElementById("ucname").value = course['name'];
+    document.getElementById("uorganizer").value=course['organizer'];
+    document.getElementById("utrainer").value=course['trainer'];
+}
+
 //UPDATE FUNCTIONS
 
 function updateDog() {
@@ -364,7 +376,7 @@ function updateOwner() {
     let ocid = document.getElementById("uocid").value;
 
     fetch('http://localhost:25294/owner', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -377,6 +389,34 @@ function updateOwner() {
         .then(data => {
             console.log('Success:', data);
             getOwners();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+}
+
+function updateCourse() {
+    let cid = document.getElementById("ucid").value;
+    let cname = document.getElementById("ucname").value;
+    let organizer = document.getElementById("uorganizer").value;
+    let trainer = document.getElementById("utrainer");
+
+
+    fetch('http://localhost:25294/course', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                name: cname, organizer: organizer, trainer: trainer
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getCourses();
         })
         .catch((error) => {
             console.error('Error:', error);
