@@ -114,7 +114,7 @@ function displayDogs() {
         document.getElementById('dogs').innerHTML +=
             "<tr><td>" + d.id + "</td><td>" + d.name + "</td><td>" + d.breed + "</td><td>" + gender + "</td><td>" + castrated +
             "</td><td>" + d.weight + "</td><td>" + d.height + "</td><td>" + d.ownerId + "</td > <td>" + d.courseId +
-            "</td><td><button onclick='removeDog()'>Törlés</button>" +
+        "</td><td><button onclick='removeDog(" + d.id +")'>Törlés</button>" +
         "<button onclick='showUpdateDog("+d.id+")'>Módosítás</button></td ></tr > ";
     });
 }
@@ -124,7 +124,7 @@ function displayOwners() {
         if (o.sex == 1) { gender = "Nõ" } else { gender = "Férfi" };
         document.getElementById('owners').innerHTML +=
             "<tr><td>" + o.id + "</td><td>" + o.name + "</td><td>" + o.age + "</td><td>" + gender + "</td><td>" + o.courseId +
-            "</td><td><button onclick='removeOwner()'>Törlés</button>" +
+        "</td><td><button onclick='removeOwner(" + o.id +")'>Törlés</button>" +
         "<button onclick='showUpdateOwner(" + o.id +")'>Módosítás</button></td ></tr > ";
     });
 
@@ -134,7 +134,7 @@ function displayCourses() {
     courses.forEach(c => {
         document.getElementById('courses').innerHTML +=
             "<tr><td>" + c.id + "</td><td>" + c.name + "</td><td>" + c.organizer + "</td><td>"
-            + c.trainer + "</td><td><button onclick='removeCourse()'>Törlés</button>" +
+            + c.trainer + "</td><td><button onclick='removeCourse("+c.id+")'>Törlés</button>" +
         "<button onclick='showUpdateCourse(" + c.id +")'>Módosítás</button></td ></tr > ";
     });
 }
